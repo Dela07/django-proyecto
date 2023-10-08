@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/calculadora.css' %}">
+    <title>Calculadora</title>
+</head>
+<body>
+    <form method="post" action="/">
+        {% csrf_token %}
+        <h1>Calculadora Simple</h1>
+        <br>
+        <label for="operador1">Operador1</label>
+        <input type="text" name="operador1">
+        <br>
+        <label for="operaciones">operaciones</label>
+        <input type="radio" name="operaciones" value="suma">
+        <label for="suma">+</label>
+        <input type="radio" name="operaciones" value="resta">
+        <label for="resta">-</label>
+        <input type="radio" name="operaciones" value="multiplicacion">
+        <label for="multiplicacion">*</label>
+        <input type="radio" name="operaciones" value="division">
+        <label for="division">/</label>
+        <br>
+        <label for="operador2">Operador2</label>
+        <input type="text" name="operador2">
+        <br>
+        <input type="submit" value="calcular">
+
+        {% if resultado %}
+<p>Resultado: {{ resultado }}</p>
+{% endif %}
+
+
+    </form>
+    
+</body>
+</html>
